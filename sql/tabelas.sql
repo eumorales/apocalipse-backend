@@ -25,15 +25,6 @@ CREATE TABLE atividades (
   cadeira_id INTEGER REFERENCES cadeiras(id) ON DELETE CASCADE,
   criada_por INTEGER REFERENCES usuarios(id),
   data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  visibilidade_geral BOOLEAN DEFAULT true
-);
-
--- Tabela de visibilidade personalizada
-CREATE TABLE atividade_visibilidade (
-  id SERIAL PRIMARY KEY,
-  atividade_id INTEGER REFERENCES atividades(id) ON DELETE CASCADE,
-  usuario_id INTEGER REFERENCES usuarios(id) ON DELETE CASCADE,
-  UNIQUE (atividade_id, usuario_id)
 );
 
 -- Tabela de atividades concluídas por usuário

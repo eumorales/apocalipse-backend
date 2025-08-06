@@ -6,7 +6,7 @@ require('dotenv').config()
 
 const router = express.Router()
 
-// Registro de usuário
+// Registro 
 router.post('/registrar', async (req, res) => {
   const { nome, email, senha, role } = req.body
 
@@ -30,7 +30,7 @@ router.post('/registrar', async (req, res) => {
   }
 })
 
-// Login de usuário
+// Login 
 router.post('/login', async (req, res) => {
   const { email, senha } = req.body
 

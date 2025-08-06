@@ -4,10 +4,10 @@ CREATE TABLE usuarios (
   nome VARCHAR(100) NOT NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
   senha VARCHAR(255) NOT NULL,
-  role VARCHAR(10) DEFAULT 'membro' -- 'admin' ou 'membro'
+  role VARCHAR(10) DEFAULT 'membro' 
 );
 
--- Tabela de cadeiras (disciplinas)
+-- Tabela de cadeiras
 CREATE TABLE cadeiras (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(100) NOT NULL,

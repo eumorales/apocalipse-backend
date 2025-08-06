@@ -23,9 +23,6 @@ Thumbs.db
 .idea/
 *.swp
 
-# Banco (se você usar dump local)
-*.sql
-
 # Arquivos temporários
 *.tmp
 *.bak

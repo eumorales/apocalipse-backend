@@ -35,3 +35,19 @@ CREATE TABLE atividades_concluidas (
   data_conclusao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   UNIQUE (usuario_id, atividade_id)
 );
+
+-- ATT
+
+-- Adicionar coluna arquivada se não existir
+ALTER TABLE atividades 
+ADD COLUMN IF NOT EXISTS arquivada BOOLEAN DEFAULT FALSE;
+
+-- Atualizar estrutura para compatibilidade
+ALTER TABLE atividades 
+ALTER COLUMN status SET DEFAULT 'ativo';
+
+-- Criar índices para melhor performance
+CREATE INDEX IF NOT EXISTS idx_atividades_arquivada ON atividades(arquivada);
+CREATE INDEX IF NOT EXISTS idx_atividades_data_entrega ON atividades(data_entrega);
+CREATE INDEX IF NOT EXISTS idx_atividades_concluidas_usuario ON atividades_concluidas(usuario_id);
+
